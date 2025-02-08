@@ -1,0 +1,23 @@
+Лексема                   Токен           Строка Столбец
+=========================================================
+-.0                       numeric         2     16   
+10L                       integer         3     16   
+"Hello, R!"               character       4     18   
+TRUE                      logical         5     16   
+3 + 4i                    complex         6     16   
+"R"                       character       7     22   
+40                        numeric         12    19   
+"Число больше 40"         character       13    9    
+40                        numeric         14    27   
+"Число равно 40"          character       15    9    
+"Число меньше 40"         character       17    9    
+"Это правда"              character       21    31   
+"Это ложь"                character       21    54   
+3                         numeric         25    8    
+"Понедельник"             character       27    20   
+"Вторник"                 character       28    20   
+"Среда"                   character       29    20   
+"Четверг"                 character       30    20   
+"Пятница"                 character       31    20   
+"Суббота"                 character       32    20   
+"Воскресенье"             character       33    20   

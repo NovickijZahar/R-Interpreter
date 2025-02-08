@@ -1,0 +1,13 @@
+Лексема                   Токен           Строка Столбец
+=========================================================
+<-                        assignment      2     13   
+<-                        assignment      3     13   
+<-                        assignment      4     15   
+<-                        assignment      5     13   
+<-                        assignment      6     13   
+<-                        assignment      7     9    
+>                         comparison      12    17   
+==                        comparison      14    24   
+<-                        assignment      21    8    
+<-                        assignment      25    5    
+<-                        assignment      26    10   
