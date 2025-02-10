@@ -52,6 +52,7 @@ var punctuations = []TokenType {
 	{"begin", `{`, "punctuation"},
 	{"end", `}`, "punctuation"},
 	{"comma", `,`, "punctuation"},
+	{"access", `(\.|@|\$)`, "punctuation"},
 }
 
 var skip = []TokenType {

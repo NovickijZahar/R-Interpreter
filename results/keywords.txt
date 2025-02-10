@@ -1,6 +1,9 @@
 Лексема                   Токен           Строка Столбец
 =========================================================
-if                        if              12    1    
-else                      else            14    3    
-if                        if              14    8    
-else                      else            16    3    
+function                  function        6     17   
+function                  function        16    26   
+function                  function        28    36   
+NULL                      NULL            42    30   
+NULL                      NULL            43    29   
+function                  function        44    36   
+function                  function        48    31   

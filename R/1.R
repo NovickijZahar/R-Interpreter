@@ -1,5 +1,5 @@
 # Базовые типы данных
-numeric_var <- -.0  # Числовой
+numeric_var <- -2.0  # Числовой
 integer_var <- 10L   # Целочисленный
 character_var <- "Hello, R!"  # Символьный
 logical_var <- TRUE  # Логический

@@ -1,23 +1,33 @@
 Лексема                   Токен           Строка Столбец
 =========================================================
--.0                       numeric         2     16   
-10L                       integer         3     16   
-"Hello, R!"               character       4     18   
-TRUE                      logical         5     16   
-3 + 4i                    complex         6     16   
-"R"                       character       7     22   
-40                        numeric         12    19   
-"Число больше 40"         character       13    9    
-40                        numeric         14    27   
-"Число равно 40"          character       15    9    
-"Число меньше 40"         character       17    9    
-"Это правда"              character       21    31   
-"Это ложь"                character       21    54   
-3                         numeric         25    8    
-"Понедельник"             character       27    20   
-"Вторник"                 character       28    20   
-"Среда"                   character       29    20   
-"Четверг"                 character       30    20   
-"Пятница"                 character       31    20   
-"Суббота"                 character       32    20   
-"Воскресенье"             character       33    20   
+"Иван"                    character       2     23   
+30                        numeric         2     41   
+"Person"                  character       3     18   
+"Имя:"                    character       7     7    
+"\nВозраст:"              character       7     28   
+"\n"                      character       7     58   
+"Car"                     character       12    10   
+"character"               character       13    30   
+"numeric"                 character       13    50   
+"show"                    character       16    11   
+"Car"                     character       16    19   
+"Марка:"                  character       17    7    
+"\nГод выпуска:"          character       17    35   
+"\n"                      character       17    76   
+"Car"                     character       20    15   
+"Toyota"                  character       20    29   
+2020                      numeric         20    46   
+"PersonRef"               character       25    26   
+"character"               character       26    47   
+"numeric"                 character       26    66   
+"Привет, меня зовут"      character       29    34   
+"и мне"                   character       30    33   
+"лет.\n"                  character       30    51   
+"Анна"                    character       34    36   
+25                        numeric         34    54   
+"PersonR6"                character       40    21   
+"Привет, меня зовут"      character       49    29   
+"и мне"                   character       49    77   
+"лет.\n"                  character       49    100  
+"Олег"                    character       52    34   
+35                        numeric         52    52   

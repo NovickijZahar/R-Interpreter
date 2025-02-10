@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	code, _ := os.ReadFile("R/1.R")
+	code, _ := os.ReadFile("R/3.R")
 
 	lex := lexer.Lexer {Code: string(code)}
 

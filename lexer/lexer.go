@@ -47,7 +47,7 @@ func (l* Lexer) NextToken() (bool, error) {
 		firstMatch := regex.FindString(text)
 
 		if len(firstMatch) != 0 {
-			regex_lookahead := regexp.MustCompile("^" + token.Regex + `([^\w]|$)`)
+			regex_lookahead := regexp.MustCompile("^" + token.Regex + `([^\w\.]|$)`)
 			lookahead := regex_lookahead.FindString(text)
 			if (len(lookahead) == 0 && (
 				token.Class == "keyword" || token.Class == "constant")) {
@@ -75,7 +75,7 @@ func (l* Lexer) NextToken() (bool, error) {
 				l.KeywordsTokenList = append(l.KeywordsTokenList, newToken)
 			case "operator":
 				l.OperatorsTokenList = append(l.OperatorsTokenList, newToken)
-			case "id":
+			case "variable":
 				l.VariablesTokenList = append(l.VariablesTokenList, newToken)
 			case "constant":
 				l.ConstantsTokenList = append(l.ConstantsTokenList, newToken)
