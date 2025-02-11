@@ -1,0 +1,35 @@
+Лексема                   Тип токена      Строка Столбец Id   
+=========================================================
+numeric_var               ident           2     1     N:0  
+-2.0                      numeric         2     16    N:1  
+integer_var               ident           3     1     N:2  
+12L                       integer         3     16    N:3  
+character_var             ident           4     1     N:4  
+"Hello, R!"               character       4     18    N:5  
+logical_var               ident           5     1     N:6  
+TRUE                      logical         5     16    N:7  
+complex_var               ident           6     1     N:8  
+3 + 4i                    complex         6     16    N:9  
+raw_var                   ident           7     1     N:10 
+charToRaw                 ident           7     12    N:11 
+"R"                       character       7     22    N:12 
+print                     ident           9     1     N:13 
+40                        numeric         12    19    N:14 
+"Число больше 40"         character       13    9     N:15 
+"Число равно 40"          character       15    9     N:16 
+"Число меньше 40"         character       17    9     N:17 
+result                    ident           21    1     N:18 
+ifelse                    ident           21    11    N:19 
+"Это правда"              character       21    31    N:20 
+"Это ложь"                character       21    54    N:21 
+day                       ident           25    1     N:22 
+3                         numeric         25    8     N:23 
+day_name                  ident           26    1     N:24 
+switch                    ident           26    13    N:25 
+"Понедельник"             character       27    20    N:26 
+"Вторник"                 character       28    20    N:27 
+"Среда"                   character       29    20    N:28 
+"Четверг"                 character       30    20    N:29 
+"Пятница"                 character       31    20    N:30 
+"Суббота"                 character       32    20    N:31 
+"Воскресенье"             character       33    20    N:32 

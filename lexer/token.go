@@ -7,4 +7,5 @@ type Token struct {
 	Pos int
 	Line int
 	Column int
+	Id string
 }

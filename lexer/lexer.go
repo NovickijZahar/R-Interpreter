@@ -6,18 +6,23 @@ import (
 	"strings"	
 )
 
-var index = 0
-var ids = make(map[string]int)
+var names_index = 0
+var table_names = make(map[string]int)
+var operators_index = 0
+var table_operators = make(map[string]int)
+var punctuations_index = 0
+var table_punctuations = make(map[string]int)
+var keywords_index = 0
+var table_keywords = make(map[string]int)
 
 
 type Lexer struct {
 	Code string
 	Pos int
 	TokenList []Token
-	VariablesTokenList []Token
+	NamesTokenList []Token
 	KeywordsTokenList []Token
 	OperatorsTokenList []Token
-	ConstantsTokenList []Token
 	PunctuationsTokenList []Token
 }
 
@@ -54,33 +59,89 @@ func (l* Lexer) NextToken() (bool, error) {
 				continue
 			}
 			var s string
-			if token.Name == "id" {
+			var typ string
+			var flag_names bool
+			var flag_punctuations bool
+			var flag_operators bool
+			var flag_keywords bool
+
+			if token.Class == "variable" || token.Class == "constant" {
 				temp_s := strings.ReplaceAll(firstMatch, "`", "")
-				if value, exists := ids[temp_s]; exists {
+				if value, exists := table_names[temp_s]; exists {
 					s = fmt.Sprint(value)
 					} else {
-						s = fmt.Sprint(index)
-						ids[temp_s] = index 
-						index++
-					}
+						flag_names = true
+						s = fmt.Sprint(names_index)
+						table_names[temp_s] = names_index 
+						names_index++
 				}
+				typ = "N"
+			}
+
+			if token.Class == "punctuation" {
+				if value, exists := table_punctuations[firstMatch]; exists {
+					s = fmt.Sprint(value)
+					} else {
+						flag_punctuations = true
+						s = fmt.Sprint(punctuations_index)
+						table_punctuations[firstMatch] = punctuations_index 
+						punctuations_index++
+				}
+				typ = "P"
+			}
+
+			if token.Class == "operator" {
+				if value, exists := table_operators[firstMatch]; exists {
+					s = fmt.Sprint(value)
+					} else {
+						flag_operators = true
+						s = fmt.Sprint(operators_index)
+						table_operators[firstMatch] = operators_index 
+						operators_index++
+				}
+				typ = "O"
+			}
+
+			if token.Class == "keyword" {
+				if value, exists := table_keywords[firstMatch]; exists {
+					s = fmt.Sprint(value)
+					} else {
+						flag_keywords = true
+						s = fmt.Sprint(keywords_index)
+						table_keywords[firstMatch] = keywords_index 
+						keywords_index++
+				}
+				typ = "K"
+			}
+
+
 			line, col := charToLineCol(l.Code, l.Pos)
-			newToken := Token {Kind: token.Name + s, Text: firstMatch, Line: line, Column: col}
+			newToken := Token {Kind: token.Name, Text: firstMatch, Line: line, Column: col, Id: typ + ":" + s}
 			l.Pos += len(firstMatch)
 			if token.Class != "skip" {
 				l.TokenList = append(l.TokenList, newToken)
 			}
 			switch token.Class {
 			case "keyword": 
-				l.KeywordsTokenList = append(l.KeywordsTokenList, newToken)
+				if flag_keywords {
+					l.KeywordsTokenList = append(l.KeywordsTokenList, newToken)
+				}
 			case "operator":
-				l.OperatorsTokenList = append(l.OperatorsTokenList, newToken)
+				if flag_operators {
+					l.OperatorsTokenList = append(l.OperatorsTokenList, newToken)
+				}
 			case "variable":
-				l.VariablesTokenList = append(l.VariablesTokenList, newToken)
+				if flag_names{
+					l.NamesTokenList = append(l.NamesTokenList, newToken)
+				}
 			case "constant":
-				l.ConstantsTokenList = append(l.ConstantsTokenList, newToken)
+				if flag_names {
+					l.NamesTokenList = append(l.NamesTokenList, newToken)
+				}
 			case "punctuation":
-				l.PunctuationsTokenList = append(l.PunctuationsTokenList, newToken)
+				if flag_punctuations {
+					l.PunctuationsTokenList = append(l.PunctuationsTokenList, newToken)
+				}
 			}
 			return true, nil
 		}

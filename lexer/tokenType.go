@@ -35,7 +35,7 @@ var operators = []TokenType {
 }
 
 var variables = []TokenType {
-	{"id", "([a-zA-Z_]\\w*|`%.*%`|%.*%)", "variable"},
+	{"ident", "([a-zA-Z_]\\w*|`%.*%`|%.*%)", "variable"},
 }
 
 var constants = []TokenType {
